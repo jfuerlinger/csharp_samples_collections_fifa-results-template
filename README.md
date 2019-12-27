@@ -163,15 +163,16 @@ Schlußendlich sollen folgende drei Dateien bei der Programmausführung erstellt
 
 # Hinweise
 
-1. Verwenden Sie Deltaprogrammierung wenn immer es sinnvoll erscheint.
-1. Das Projekt `FifaResults.ConsoleApp` muss als `Startup Project` definiert werden!
-1. Die Ausgaben sollen analog der Beispiel formatiert werden!
-1. Währungen können formatiert ausgegeben werden ([Details](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)).
-1. Umrechnung Fuß/Zoll nach cm (z.B. 5'7)
+1. Das Template finden Sie im Ordner `Source`.
+2. Verwenden Sie Deltaprogrammierung wenn immer es sinnvoll erscheint.
+3. Das Projekt `FifaResults.ConsoleApp` muss als `Startup Project` definiert werden!
+4. Die Ausgaben sollen analog der Beispiel formatiert werden!
+5. Währungen können formatiert ausgegeben werden ([Details](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)).
+6. Umrechnung Fuß/Zoll nach cm (z.B. 5'7)
    * 5 Zoll sind 12 Inches
    * 7 Inches sind 2,54 cm
    * 5 * 12 + 7 * 2,54 = 170,18 cm
-1. Umrechung Pound nach kg (z.B. 159lbs)
+7. Umrechung Pound nach kg (z.B. 159lbs)
    * 159 * 0.45359237 = 72,12 kg
-1. Die UnitTests dürfen nicht verändert werden!
-1. [Markdown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+8. Die UnitTests dürfen nicht verändert werden!
+9. [Markdown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
