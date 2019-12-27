@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifaResults.Entities", "FifaResults.Entities\FifaResults.Entities.csproj", "{F8BC8B6C-E1CB-4D24-A873-0B2F784C42DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifaResults.Logic", "FifaResults.Logic\FifaResults.Logic.csproj", "{D3AB51AF-484F-44E9-9459-8FF9EFE711E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifaResults.Test", "FifaResults.Test\FifaResults.Test.csproj", "{0DE210E3-DA76-49C2-9EFC-79B4D5F8329F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifaResults.ConsoleApp", "FifaResults.ConsoleApp\FifaResults.ConsoleApp.csproj", "{55263D36-CC47-4412-8F95-3E761046F1FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8BC8B6C-E1CB-4D24-A873-0B2F784C42DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BC8B6C-E1CB-4D24-A873-0B2F784C42DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BC8B6C-E1CB-4D24-A873-0B2F784C42DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BC8B6C-E1CB-4D24-A873-0B2F784C42DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3AB51AF-484F-44E9-9459-8FF9EFE711E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3AB51AF-484F-44E9-9459-8FF9EFE711E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3AB51AF-484F-44E9-9459-8FF9EFE711E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3AB51AF-484F-44E9-9459-8FF9EFE711E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE210E3-DA76-49C2-9EFC-79B4D5F8329F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE210E3-DA76-49C2-9EFC-79B4D5F8329F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE210E3-DA76-49C2-9EFC-79B4D5F8329F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE210E3-DA76-49C2-9EFC-79B4D5F8329F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55263D36-CC47-4412-8F95-3E761046F1FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55263D36-CC47-4412-8F95-3E761046F1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55263D36-CC47-4412-8F95-3E761046F1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55263D36-CC47-4412-8F95-3E761046F1FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDD7B158-199B-4C37-8255-32E08DDD64A1}
+	EndGlobalSection
+EndGlobal
