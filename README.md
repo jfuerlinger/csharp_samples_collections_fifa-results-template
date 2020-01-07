@@ -138,6 +138,7 @@ Der `Controller` stellt die Ablauflogik zur verfügung
 1. `Player` / `PlayerWithClub`
       * Verwaltung von Playern und Playern mit einer Clubzugehörigkeit.
 2. `Club`
+      * Achtung: die Markdown-Ausgabe unterscheidet sich zwischen Playern mit/ohne Club!
       * Verwaltung der Clubs
       * Es können per `AddPlayer` Spieler hinzugefügt werden.
       * Eigenschaften für `AverageAge` ("Durchschnittsalter"), `AverageWage` ("Durchschnittseinkommen" => Durchschnittlisches Einkommen aller Player des Clubs) und `OverallValue` ("Gesamtmarktwert" => Summe der Werte der einzelnen Player des Clubs) .
