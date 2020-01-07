@@ -36,7 +36,7 @@ namespace FifaResults.Logic
 
         /// <summary>
         /// Initialisiert den Controller:
-        ///  - Liest die Datei (siehe Hilfsmethode) in die interne "_lines"-Struktur
+        ///  - Liest die Datei per Hilfsmethode "ReadLinesFromFile()" in die interne "_lines"-Struktur
         ///  - Instanziert den "_clubsCache"
         /// </summary>
         public Controller()
