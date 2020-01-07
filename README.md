@@ -15,7 +15,7 @@ Dazu sollen folgende Aspekte herausgearbeitet werden:
 
 1. Top 10 Clubs  (`Controller.GetTop10ClubsAsMarkdown`)
    * Liste die Top 10 Clubs nach deren Gesamtwert deren Player auf.
-   * Sortierung: Absteigend nach dem Gesamtwert.
+   * Sortierung: Absteigend nach dem Gesamtwert. (Achtung: verwenden Sie hierzu einen eigenen Comparer).
    * Gesuchtes Ergebnis
    
         | Name                | Players | AverageAge |  AverageWage |    OverallValue |
@@ -45,7 +45,7 @@ Dazu sollen folgende Aspekte herausgearbeitet werden:
 2. Last 10 Clubs (`Controller.GetLast10ClubsAsMarkdown`)
 
    * Liste die schwächsten 10 Clubs nach deren Gesamtwert deren Player auf.
-   * Sortierung: Aufsteigend nach dem Gesamtwert.
+   * Sortierung: Aufsteigend nach dem Gesamtwert. (Achtung: verwenden Sie hierzu einen eigenen Comparer).
    * Gesuchtes Ergebnis
 
         | Name                   | Players | AverageAge | AverageWage | OverallValue |
@@ -76,7 +76,7 @@ Dazu sollen folgende Aspekte herausgearbeitet werden:
 
 3. Spielerübersicht (`Controller.GetPlayersUnder1KValueByNationAndValueAsMarkdown`)
    * Liste alle Player aller Clubs auf, welche unter einem Marktwert von € 100.000 liegen.
-   * Sortierung: Aufsteigend nach Nationalität und absteigend nach dem Marktwert.
+   * Sortierung: Aufsteigend nach Nationalität und absteigend nach dem Marktwert. (Achtung: verwenden Sie hierzu einen eigenen Comparer).
    * Achtung: Unterschiedliche Darstellung wenn Player einem Club angehört oder keinem Club angehört!
    * Gesuchtes Ergebnis
   
@@ -126,19 +126,18 @@ Der `Controller` stellt die Ablauflogik zur verfügung
       * Hierbei werden alle Clubs aus der csv-Datei eingelesen und sind danach über das Property `Clubs` von außen abrufbar.
    2. `LoadPlayersForClubs`
       * Hierbei werden die Player den zuvor eingelesenen `Clubs` zugeordnet.
-      * Der Aufruf der Methode `LoadClubs` muss zuvor erfolgt sein - ansonsten muss eine `InvalidOperationException`ausgelöst werden!
+      * Der Aufruf der Methode `LoadClubs` muss zuvor erfolgt sein - ansonsten muss eine `InvalidOperationException` ausgelöst werden!
 1. Markdown-Generierungscode `GetTop10ClubsAsMarkdown`, `GetLast10ClubsAsMarkdown`, `GetPlayersUnder100KValueByNationalityAsMarkdown`
       * Diese drei Methoden dienen dazu den Markdown-Code für die drei Auswertungen zu generieren. Siehen Sie sich dazu die Markdown-Beispiel in der Auswertungsdefinition an.
 1. Parse-Logik
       * Da manche Informationen (Währungen, Größe und Gewicht) in der csv-Datei als Zeichenkette bzw. nicht im metrischen System vorliegen, müssen diese korrekt geparst bzw. konviertiert werden.
-      * Sehen Sie sich dazu die Hinweise in den Methodenkommentaren an.
-1. IMarkdownProvider
+      * Sehen Sie sich dazu die Hinweise in den Methodenkommentaren an (`ParseCurrency`, `ParseWeightToMetric` und `ParseHeightToMetric`). 
+1. `IMarkdownProvider`
       * Dieser Vertrag muss von jeder Entität implementiert werden, welche im Markdown dargestellt werden soll (Hinweis: `Club` und `Player`).
-      * Im Vertrag wird genau eine Methode gefordert `GetMarkdown`. Diese liefert die Markdown-Representation der Entität.
-1. Player / PlayerWithClub
+      * Im Vertrag wird genau eine Methode gefordert: `GetMarkdown`. Diese liefert die Markdown-Representation der Entität.
+1. `Player` / `PlayerWithClub`
       * Verwaltung von Playern und Playern mit einer Clubzugehörigkeit.
-      * Achtung: die Markdown-Ausgabe unterscheidet sich zwischen Playern mit/ohne Club!
-2. Club
+2. `Club`
       * Verwaltung der Clubs
       * Es können per `AddPlayer` Spieler hinzugefügt werden.
       * Eigenschaften für `AverageAge` ("Durchschnittsalter"), `AverageWage` ("Durchschnittseinkommen" => Durchschnittlisches Einkommen aller Player des Clubs) und `OverallValue` ("Gesamtmarktwert" => Summe der Werte der einzelnen Player des Clubs) .
@@ -149,7 +148,7 @@ Implementieren Sie auch eine einfache Konsolen-Applikation, welche den Import de
 
 ![Console App](./images/01_screenshot_consoleapp.png)
 
-Mit folgender Hilfsmethode können die resultierenden Markdown-Dateien (Endung `md`) gespeichert werden:
+Mit folgender bestehender Hilfsmethode können die resultierenden Markdown-Dateien (Endung `md`!) gespeichert werden:
 
 ```csharp
 void WriteContentToFile(string fileName, string content)
@@ -163,16 +162,15 @@ Schlußendlich sollen folgende drei Dateien bei der Programmausführung erstellt
 
 # Hinweise
 
-1. Das Template finden Sie im Ordner `Source`.
-2. Verwenden Sie Deltaprogrammierung wenn immer es sinnvoll erscheint.
-3. Das Projekt `FifaResults.ConsoleApp` muss als `Startup Project` definiert werden!
-4. Die Ausgaben sollen analog der Beispiel formatiert werden!
-5. Währungen können formatiert ausgegeben werden ([Details](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)).
-6. Umrechnung Fuß/Zoll nach cm (z.B. 5'7)
+1. Verwenden Sie Deltaprogrammierung wenn immer es sinnvoll erscheint.
+1. Das Projekt `FifaResults.ConsoleApp` muss als `Startup Project` definiert werden!
+1. Die Ausgaben sollen analog der Beispiel formatiert werden!
+1. Währungen können formatiert ausgegeben werden ([Details](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)).
+1. Umrechnung Fuß/Zoll nach cm (z.B. 5'7)
    * 5 Zoll sind 12 Inches
    * 7 Inches sind 2,54 cm
    * 5 * 12 + 7 * 2,54 = 170,18 cm
-7. Umrechung Pound nach kg (z.B. 159lbs)
+1. Umrechung Pound nach kg (z.B. 159lbs)
    * 159 * 0.45359237 = 72,12 kg
-8. Die UnitTests dürfen nicht verändert werden!
-9. [Markdown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+1. Die UnitTests dürfen nicht verändert werden!
+1. [Markdown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
