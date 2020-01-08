@@ -122,22 +122,29 @@ Dazu sollen folgende Aspekte herausgearbeitet werden:
 Der `Controller` stellt die Ablauflogik zur verfügung
 
 1. Import-Logik 
+   1. Import-Datei (`data.csv`)
+
+      ![Import-Datei](./images/02_inputfile.png)
+
+      * Trennzeichen: Semikolon
+      * Spieler inkl. Club-Informationen
+
    1. `LoadClubs`
       * Hierbei werden alle Clubs aus der csv-Datei eingelesen und sind danach über das Property `Clubs` von außen abrufbar.
    2. `LoadPlayersForClubs`
       * Hierbei werden die Player den zuvor eingelesenen `Clubs` zugeordnet.
       * Der Aufruf der Methode `LoadClubs` muss zuvor erfolgt sein - ansonsten muss eine `InvalidOperationException` ausgelöst werden!
-1. Markdown-Generierungscode `GetTop10ClubsAsMarkdown`, `GetLast10ClubsAsMarkdown`, `GetPlayersUnder100KValueByNationalityAsMarkdown`
+2. Markdown-Generierungscode `GetTop10ClubsAsMarkdown`, `GetLast10ClubsAsMarkdown`, `GetPlayersUnder100KValueByNationalityAsMarkdown`
       * Diese drei Methoden dienen dazu den Markdown-Code für die drei Auswertungen zu generieren. Siehen Sie sich dazu die Markdown-Beispiel in der Auswertungsdefinition an.
-1. Parse-Logik
+3. Parse-Logik
       * Da manche Informationen (Währungen, Größe und Gewicht) in der csv-Datei als Zeichenkette bzw. nicht im metrischen System vorliegen, müssen diese korrekt geparst bzw. konviertiert werden.
       * Sehen Sie sich dazu die Hinweise in den Methodenkommentaren an (`ParseCurrency`, `ParseWeightToMetric` und `ParseHeightToMetric`). 
-1. `IMarkdownProvider`
+4. `IMarkdownProvider`
       * Dieser Vertrag muss von jeder Entität implementiert werden, welche im Markdown dargestellt werden soll (Hinweis: `Club` und `Player`).
       * Im Vertrag wird genau eine Methode gefordert: `GetMarkdown`. Diese liefert die Markdown-Representation der Entität.
-1. `Player` / `PlayerWithClub`
+5. `Player` / `PlayerWithClub`
       * Verwaltung von Playern und Playern mit einer Clubzugehörigkeit.
-2. `Club`
+6. `Club`
       * Achtung: die Markdown-Ausgabe unterscheidet sich zwischen Playern mit/ohne Club!
       * Verwaltung der Clubs
       * Es können per `AddPlayer` Spieler hinzugefügt werden.
